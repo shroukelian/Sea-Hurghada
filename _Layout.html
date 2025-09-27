@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Sea Arzu</title>
+
+    <link rel="stylesheet" href="~/css/main.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/social-icons.css" asp-append-version="true">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="~/images/logo.jpg" rel="icon" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body class="bg-slate-50">
+
+    @if (ViewContext.RouteData.Values["action"].ToString().ToLower() != "tripdetails")
+    {
+        <header class="hero-section h-screen min-h-[700px] flex flex-col text-white">
+            <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 p-1 transition-all duration-300">
+                <!-- Desktop & Mobile Nav Content -->
+                @await Html.PartialAsync("_NavbarContent")
+            </nav>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="mobile-menu-container">
+                @await Html.PartialAsync("_MobileMenuContent")
+            </div>
+
+            <div id="home" class="container mx-auto flex-grow flex flex-col items-center justify-center text-center px-4 z-10">
+                <h1 class="hero-title text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-4" data-aos="fade-up" data-en="Your Red Sea Story Awaits" data-ar="قصتك في البحر الأحمر بانتظارك" data-de="Ihre Rotmeer-Geschichte wartet" data-ro="Povestea ta la Marea Roșie te așteaptă" data-it="La tua storia sul Mar Rosso ti aspetta">Your Red Sea Story Awaits</h1>
+                <p class="text-lg md:text-xl max-w-3xl mb-8" data-aos="fade-up" data-aos-delay="200" data-en="Experience the magic of turquoise waters and golden sands. Unforgettable adventures, crafted just for you." data-ar="عِش سحر المياه الفيروزية والرمال الذهبية. مغامرات لا تُنسى، صُممت خصصاً لك." data-de="Erleben Sie die Magie von türkisfarbenem Wasser und goldenem Sand. Unvergessliche Abenteuer, nur für Sie gemacht." data-ro="Experimentați magia apelor turcoaz și a nisipurilor aurii. Aventuri de neuitat, create special pentru tine." data-it="Vivi la magia delle acque turchesi e delle sabbie dorate. Avventure indimenticabili, create su misura per te.">Experience the magic of turquoise waters and golden sands. Unforgettable adventures, crafted just for you.</p>
+                <a href="#trips" class="btn-wave" data-aos="fade-up" data-aos-delay="400">
+                    <span data-en="Discover Tours" data-ar="اكتشف الرحلات" data-de="Touren entdecken" data-ro="Descoperă Tururi" data-it="Scopri i Tour">Discover Tours</span>
+                </a>
+            </div>
+
+            <div>
+                <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                    <defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" /></defs>
+                    <g class="parallax">
+                        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(248, 250, 252, 0.7)" />
+                        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(248, 250, 252, 0.5)" />
+                        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(248, 250, 252, 0.3)" />
+                        <use xlink:href="#gentle-wave" x="48" y="7" fill="#f8fafc" />
+                    </g>
+                </svg>
+            </div>
+            <partial name="_LoginPartial" />
+        </header>
+    }
+    else
+    {
+        <!-- Simplified Header for Details Page -->
+        <header>
+            <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 p-1 transition-all duration-300 nav-scrolled">
+                @await Html.PartialAsync("_NavbarContent")
+            </nav>
+            <div id="mobile-menu" class="mobile-menu-container">
+                @await Html.PartialAsync("_MobileMenuContent")
+            </div>
+        </header>
+    }
+
+
+    <main>
+        @RenderBody()
+    </main>
+
+    <partial name="_Footer" />
+    <button id="scrollToTopBtn" class="hidden fixed bottom-5 right-5 bg-accent-gold text-white w-12 h-12 rounded-full shadow-lg z-50 flex items-center justify-center transition-all duration-300 ease-in-out hover:scale-110">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <button id="whatsapp-fab" class="fixed bottom-5 left-5 w-14 h-14 rounded-full shadow-lg z-50 flex items-center justify-center transition-all duration-300 ease-in-out hover:scale-110">
+        <i class="fab fa-whatsapp text-3xl text-white"></i>
+    </button>
+
+    <div id="notification" class="hidden fixed bottom-5 left-1/2 -translate-x-1/2 text-white py-2 px-6 rounded-full shadow-lg z-50">
+        <p id="notification-message"></p>
+    </div>
+
+    <div id="gallery-overlay" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-0 z-[99] transition-all duration-500 ease-in-out pointer-events-none"></div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="~/js/main.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
