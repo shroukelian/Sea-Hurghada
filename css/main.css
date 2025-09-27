@@ -1026,3 +1026,57 @@ html {
         padding: 10px 50px;
     }
 }
+
+/* =================================== */
+/* --- Mobile Menu Responsive Fix --- */
+/* =================================== */
+
+@media (max-width: 1023px) { /* We use 1023px because the menu hides at the 'lg' breakpoint in Tailwind CSS */
+
+    /* 1. Style the mobile menu container */
+    .mobile-menu-container {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Start off-screen to the right */
+        width: 80%; /* Take 80% of the screen width */
+        max-width: 350px;
+        height: 100%;
+        background-color: rgba(3, 105, 161, 0.95); /* Semi-transparent dark blue */
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        z-index: 100;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+        transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    /* Handle RTL (Right-to-Left) direction for Arabic */
+    [dir="rtl"] .mobile-menu-container {
+        right: auto;
+        left: -100%;
+        transition: left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    /* 2. When the menu is open, bring it into view */
+    .mobile-menu-container.is-open {
+        right: 0;
+    }
+    [dir="rtl"] .mobile-menu-container.is-open {
+        left: 0;
+    }
+
+    /* 3. Style the links inside the mobile menu */
+    .nav-link-mobile {
+        font-size: 1.5rem;
+        color: var(--white);
+        padding: 0.5rem 1rem;
+        transition: color 0.3s, transform 0.3s;
+    }
+    .nav-link-mobile:hover {
+        color: var(--accent-gold);
+        transform: scale(1.1);
+    }
+}
