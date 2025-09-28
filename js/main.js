@@ -259,7 +259,6 @@ document.addEventListener('DOMContentLoaded', function () {
         };
         galleryOverlay.addEventListener('click', closeViewer);
     }
-    // الكود المصحح
     if (whatsappFab) {
         whatsappFab.addEventListener('click', () => {
             const whatsappNumber = "201124943927"; 
