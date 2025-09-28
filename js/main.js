@@ -17,12 +17,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const whatsappFab = document.getElementById('whatsapp-fab');
 
     // Language settings
-    const supportedLanguages = ['en', 'ar', 'de', 'ro', 'it'];
+    const supportedLanguages = ['en', 'ar', 'de', 'ru', 'ro', 'it'];
     let currentLang = localStorage.getItem('preferredLang') || 'en';
 
     // Multilingual messages
     const messages = {
-        fillFields: { en: 'Please fill all fields.', ar: 'يرجى ملء جميع الحقول.', de: 'Bitte füllen Sie alle Felder aus.', ro: 'Vă rugăm să completați toate câmpurile.', it: 'Si prega di compilare tutti i campi.' },
+        fillFields: { en: 'Please fill all fields.', ar: 'يرجى ملء جميع الحقول.', de: 'Bitte füllen Sie alle Felder aus.', ro: 'Vă rugăm să completați toate câmpurile.', it: 'Si prega di compilare tutti i campi.', ru: 'Пожалуйста, заполните все поля.' },
         redirecting: { en: 'Redirecting to WhatsApp...', ar: 'جارٍ التحويل إلى واتساب...', de: 'Weiterleitung zu WhatsApp...', ro: 'Redirecționare către WhatsApp...', it: 'Reindirizzamento a WhatsApp...' },
         invalidEmail: { en: 'Please enter a valid email.', ar: 'يرجى إدخال بريد إلكتروني صحيح.', de: 'Bitte geben Sie eine gültige E-Mail-Adresse ein.', ro: 'Vă rugăm să introduceți un email valid.', it: 'Inserisci un\'email valida.' },
         reviewSubmitted: { en: 'Thank you for your review!', ar: 'شكراً لك على رأيك!', de: 'Vielen Dank für Ihre Bewertung!', ro: 'Mulțumim pentru recenzia ta!', it: 'Grazie per la tua recensione!' },
@@ -262,13 +262,15 @@ document.addEventListener('DOMContentLoaded', function () {
     // الكود المصحح
     if (whatsappFab) {
         whatsappFab.addEventListener('click', () => {
-            const whatsappNumber = "201124943927"; // <<-- تم تعديل الرقم هنا
+            const whatsappNumber = "201124943927"; 
             const defaultMessage = {
                 en: "Hello, I'm interested in your trips.",
                 ar: "مرحباً، أنا مهتم برحلاتكم.",
                 de: "Hallo, ich interessiere mich für Ihre Reisen.",
                 ro: "Bună, sunt interesat(ă) de excursiile dvs.",
-                it: "Salve, sono interessato/a ai vostri viaggi."
+                it: "Salve, sono interessato/a ai vostri viaggi.",
+                ru: "Здравствуйте, меня интересуют ваши поездки." 
+
             };
             const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(defaultMessage[currentLang] || defaultMessage['en'])}`;
             window.open(whatsappURL, "_blank");
