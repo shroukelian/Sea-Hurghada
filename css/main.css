@@ -1,8 +1,8 @@
 ﻿
 :root {
-    --primary-light: #fdba74;      /* برتقالي فاتح */
-    --primary-medium: #f97316;     /* برتقالي أساسي */
-    --primary-dark: #c2410c;       /* برتقالي داكن */
+    --primary-light: #fdba74;     
+    --primary-medium: #f97316;     
+    --primary-dark: #c2410c;      
     --accent-gold: #FFC107; 
     --accent-gold-dark: #FFA000;
     --slate-bg: #f8fafc;

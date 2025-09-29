@@ -17,16 +17,16 @@ document.addEventListener('DOMContentLoaded', function () {
     const whatsappFab = document.getElementById('whatsapp-fab');
 
     // Language settings
-    const supportedLanguages = ['en', 'ar', 'de', 'ru', 'ro', 'it'];
+    const supportedLanguages = ['en', 'ar', 'de', 'ru'];
     let currentLang = localStorage.getItem('preferredLang') || 'en';
 
     // Multilingual messages
     const messages = {
-        fillFields: { en: 'Please fill all fields.', ar: 'يرجى ملء جميع الحقول.', de: 'Bitte füllen Sie alle Felder aus.', ro: 'Vă rugăm să completați toate câmpurile.', it: 'Si prega di compilare tutti i campi.', ru: 'Пожалуйста, заполните все поля.' },
-        redirecting: { en: 'Redirecting to WhatsApp...', ar: 'جارٍ التحويل إلى واتساب...', de: 'Weiterleitung zu WhatsApp...', ro: 'Redirecționare către WhatsApp...', it: 'Reindirizzamento a WhatsApp...' },
-        invalidEmail: { en: 'Please enter a valid email.', ar: 'يرجى إدخال بريد إلكتروني صحيح.', de: 'Bitte geben Sie eine gültige E-Mail-Adresse ein.', ro: 'Vă rugăm să introduceți un email valid.', it: 'Inserisci un\'email valida.' },
-        reviewSubmitted: { en: 'Thank you for your review!', ar: 'شكراً لك على رأيك!', de: 'Vielen Dank für Ihre Bewertung!', ro: 'Mulțumim pentru recenzia ta!', it: 'Grazie per la tua recensione!' },
-        fillReviewFields: { en: 'Please fill all review fields.', ar: 'يرجى ملء جميع حقول الرأي.', de: 'Bitte füllen Sie alle Bewertungsfelder aus.', ro: 'Vă rugăm să completați toate câmpurile recenziei.', it: 'Si prega di compilare tutti i campi della recensione.' }
+        fillFields: { en: 'Please fill all fields.', ar: 'يرجى ملء جميع الحقول.', de: 'Bitte füllen Sie alle Felder aus.', ru: 'Пожалуйста, заполните все поля.' },
+        redirecting: { en: 'Redirecting to WhatsApp...', ar: 'جارٍ التحويل إلى واتساب...', de: 'Weiterleitung zu WhatsApp...', ru: 'Перенаправление в WhatsApp...' },
+        invalidEmail: { en: 'Please enter a valid email.', ar: 'يرجى إدخال بريد إلكتروني صحيح.', de: 'Bitte geben Sie eine gültige E-Mail-Adresse ein.', ro: 'Пожалуйста, введите действительный адрес электронной почты.' },
+        reviewSubmitted: { en: 'Thank you for your review!', ar: 'شكراً لك على رأيك!', de: 'Vielen Dank für Ihre Bewertung!', ru: 'Спасибо за ваш отзыв!' },
+        fillReviewFields: { en: 'Please fill all review fields.', ar: 'يرجى ملء جميع حقول الرأي.', de: 'Bitte füllen Sie alle Bewertungsfelder aus.', ru: 'Пожалуйста, заполните все поля для отзыва.' }
     };
 
     // Initialize Animations on Scroll
@@ -266,8 +266,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 en: "Hello, I'm interested in your trips.",
                 ar: "مرحباً، أنا مهتم برحلاتكم.",
                 de: "Hallo, ich interessiere mich für Ihre Reisen.",
-                ro: "Bună, sunt interesat(ă) de excursiile dvs.",
-                it: "Salve, sono interessato/a ai vostri viaggi.",
                 ru: "Здравствуйте, меня интересуют ваши поездки." 
 
             };
